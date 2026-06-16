@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Travel Eternity Partner - AI-powered travel itinerary planning, budget optimization, destination recommendations, and interactive scheduling.">
+  <title>Travel Eternity Partner | AI Trip Planner</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header Navigation -->
+  <header>
+    <a href="#" class="logo" id="logo-brand">
+      <span class="gradient-text"><i class="fa-solid fa-infinity"></i></span> Travel Eternity
+    </a>
+    
+    <nav>
+      <ul class="nav-links" id="main-nav-links">
+        <li><a href="#" class="nav-link active" data-target="landing">Home</a></li>
+        <li><a href="#" class="nav-link" id="nav-link-dashboard" data-target="dashboard">Dashboard</a></li>
+        <li><a href="#" class="nav-link" id="nav-link-planner" data-target="planner">Itinerary Planner</a></li>
+        <li><a href="#" class="nav-link" id="nav-link-recs" data-target="recs">AI Recommendations</a></li>
+        <li><a href="#" class="nav-link" id="nav-link-budget" data-target="budget">Budget Planner</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-auth" id="header-auth-section">
+      <button class="secondary-btn" id="header-login-btn">Sign In</button>
+      <button class="glow-btn" id="header-signup-btn">Get Started</button>
+    </div>
+  </header>
+
+  <!-- Main Views Container -->
+  <main>
+    
+    <!-- LANDING VIEW -->
+    <section id="landing-view">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          <i class="fa-solid fa-sparkles"></i> The Future of Travel Planning
+        </div>
+        <h1>Plan Your Next Adventure <br><span class="gradient-text">Across Eternity</span></h1>
+        <p>Experience personalized AI itinerary generation, smart budget optimization, real-time schedule editing, and tailored destination recommendations all in one place.</p>
+        
+        <div class="hero-cta">
+          <button class="glow-btn" id="hero-plan-btn"><i class="fa-solid fa-compass"></i> Start Planning Now</button>
+          <button class="secondary-btn" id="hero-learn-btn"><i class="fa-solid fa-circle-play"></i> Explore Features</button>
+        </div>
+      </div>
+
+      <!-- Feature Showcase Grid -->
+      <div class="features-preview-grid" id="features-showcase">
+        
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Personalized Itinerary</h3>
+          <p>Generate day-by-day itineraries tailored to your interests, budget, and travel days with optimized timing.</p>
+        </div>
+
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3>AI Recommendation</h3>
+          <p>Discover destinations selected just for you, matching your exact preferences and previous searches.</p>
+        </div>
+
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+          <h3>Budget Optimizer</h3>
+          <p>Detailed cost breakdown across transport, hotels, activities, and food with smart overspend alerts.</p>
+        </div>
+
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-calendar-day"></i></div>
+          <h3>Interactive Dashboard</h3>
+          <p>Modify your day schedules, reorder attractions, and customize costs on the fly with immediate updates.</p>
+        </div>
+
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+          <h3>Favorites & Reviews</h3>
+          <p>Keep a custom wishlist of dream destinations and read rating feedback from global travel partners.</p>
+        </div>
+
+        <div class="feature-preview-card glass-panel">
+          <div class="feature-icon"><i class="fa-solid fa-print"></i></div>
+          <h3>Export & Print</h3>
+          <p>Download your complete day-wise trip details in JSON or print/save as clean PDF documents for offline travel.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section id="dashboard-view" style="display: none;">
+      <div class="dashboard-grid">
+        
+        <!-- Sidebar Navigation & Preferences -->
+        <aside class="dashboard-sidebar glass-panel">
+          <!-- Profile Card -->
+          <div class="sidebar-profile">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" alt="User Avatar" id="profile-avatar">
+            <h3 id="profile-name">Guest Explorer</h3>
+            <p id="profile-username">@guest_partner</p>
+            <span class="badge badge-primary" id="profile-member-badge">Basic Explorer</span>
+          </div>
+
+          <!-- Personalized Preferences Selector -->
+          <div class="preferences-box">
+            <h4><i class="fa-solid fa-sliders"></i> Travel Style</h4>
+            <div class="pref-chips-grid" id="dashboard-pref-chips">
+              <div class="pref-chip selected" data-pref="Adventure"><i class="fa-solid fa-mountain"></i> Adventure</div>
+              <div class="pref-chip" data-pref="Nature"><i class="fa-solid fa-tree"></i> Nature</div>
+              <div class="pref-chip" data-pref="Historical Places"><i class="fa-solid fa-monument"></i> History</div>
+              <div class="pref-chip selected" data-pref="Beaches"><i class="fa-solid fa-umbrella-beach"></i> Beaches</div>
+              <div class="pref-chip" data-pref="Shopping"><i class="fa-solid fa-bag-shopping"></i> Shopping</div>
+              <div class="pref-chip selected" data-pref="Food Exploration"><i class="fa-solid fa-utensils"></i> Foodie</div>
+              <div class="pref-chip" data-pref="Religious Tourism"><i class="fa-solid fa-place-of-worship"></i> Religious</div>
+            </div>
+          </div>
+
+          <!-- Sidebar Tabs Menu -->
+          <ul class="sidebar-menu">
+            <li>
+              <button class="sidebar-menu-item active" data-panel="planner">
+                <i class="fa-solid fa-route"></i> Itinerary Planner
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-menu-item" data-panel="recommendations">
+                <i class="fa-solid fa-compass"></i> Recommendations
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-menu-item" data-panel="budget">
+                <i class="fa-solid fa-chart-pie"></i> Budget Optimizer
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-menu-item" data-panel="favorites">
+                <i class="fa-solid fa-heart"></i> Favorites & Wishlist
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-menu-item" data-panel="reviews">
+                <i class="fa-solid fa-star"></i> Reviews & Feedbacks
+              </button>
+            </li>
+          </ul>
+
+          <!-- Logout Button -->
+          <button class="secondary-btn" id="sidebar-logout-btn" style="width: 100%; margin-top: 10px;">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+          </button>
+        </aside>
+
+        <!-- Main Content Area with Panels -->
+        <div class="dashboard-main">
+
+          <!-- 1. PLANNER PANEL -->
+          <div class="dashboard-panel-view active" id="panel-planner">
+            <div class="generator-card glass-panel">
+              <h2 style="margin-bottom: 20px;"><i class="fa-solid fa-wand-magic-sparkles gradient-text"></i> Personalized Itinerary Generator</h2>
+              
+              <form id="itinerary-generator-form" onsubmit="return false;">
+                <div class="inputs-row-3">
+                  <div class="form-group">
+                    <label for="trip-destination">Where to?</label>
+                    <select class="form-control" id="trip-destination" required>
+                      <option value="" disabled selected>Select a destination</option>
+                      <option value="Bali, Indonesia">Bali, Indonesia</option>
+                      <option value="Kyoto, Japan">Kyoto, Japan</option>
+                      <option value="Rome, Italy">Rome, Italy</option>
+                      <option value="Swiss Alps, Switzerland">Swiss Alps, Switzerland</option>
+                      <option value="Reykjavik, Iceland">Reykjavik, Iceland</option>
+                      <option value="Cairo, Egypt">Cairo, Egypt</option>
+                      <option value="New York City, USA">New York City, USA</option>
+                      <option value="Phuket, Thailand">Phuket, Thailand</option>
+                      <option value="Taj Mahal (Agra), India">Taj Mahal (Agra), India</option>
+                      <option value="Goa, India">Goa, India</option>
+                      <option value="Ladakh, India">Ladakh, India</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="trip-days">Number of Days</label>
+                    <input type="number" class="form-control" id="trip-days" min="1" max="10" value="3" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="trip-budget">Total Budget ($)</label>
+                    <input type="number" class="form-control" id="trip-budget" min="100" max="20000" value="1200" required>
+                  </div>
+                </div>
+
+                <div class="inputs-row-2">
+                  <div class="form-group">
+                    <label for="trip-accommodation">Accommodation Choice</label>
+                    <select class="form-control" id="trip-accommodation" required>
+                      <option value="Budget">Hostel / Budget Hotel ($)</option>
+                      <option value="Mid-range" selected>Standard Boutique Hotel ($$)</option>
+                      <option value="Luxury">Luxury Resort ($$$)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="trip-activity-style">Preferred Activity Pace</label>
+                    <select class="form-control" id="trip-activity-style" required>
+                      <option value="Relaxed">Relaxed (1-2 major activities/day)</option>
+                      <option value="Balanced" selected>Balanced (3 activities/day)</option>
+                      <option value="Packed">Packed / Fast-paced (4+ activities/day)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button class="glow-btn" id="generate-itinerary-btn" style="width: 100%; margin-top: 10px;">
+                  <i class="fa-solid fa-gears"></i> Generate Custom Itinerary
+                </button>
+              </form>
+            </div>
+
+            <!-- ITINERARY OUTPUT -->
+            <div class="itinerary-output-card glass-panel" id="itinerary-output-section" style="display: none;">
+              <div class="itinerary-header-bar">
+                <div class="itinerary-title-details">
+                  <h3 id="out-dest-name">Bali Adventure Planner</h3>
+                  <p>
+                    <span id="out-duration"><i class="fa-regular fa-calendar"></i> 3 Days</span>
+                    <span id="out-budget"><i class="fa-solid fa-wallet"></i> Budget: $1,200</span>
+                    <span id="out-style"><i class="fa-solid fa-hotel"></i> Mid-range accommodation</span>
+                  </p>
+                </div>
+                <div class="itinerary-actions">
+                  <button class="secondary-btn" id="save-itinerary-btn"><i class="fa-regular fa-bookmark"></i> Save Trip</button>
+                  <button class="secondary-btn" id="print-itinerary-btn"><i class="fa-solid fa-print"></i> Print PDF</button>
+                  <button class="icon-btn" id="download-json-btn" title="Download JSON Data"><i class="fa-solid fa-download"></i></button>
+                </div>
+              </div>
+
+              <!-- Day Tab Selectors -->
+              <div class="day-selector-wrap" id="itinerary-day-tabs">
+                <!-- Dynamically filled with buttons like: <button class="day-tab-btn active">Day 1</button> -->
+              </div>
+
+              <!-- Timeline Activities List -->
+              <div class="timeline" id="itinerary-timeline">
+                <!-- Dynamically filled with timeline items -->
+              </div>
+
+              <!-- Add New Activity Trigger -->
+              <div style="margin-top: 30px; text-align: center;">
+                <button class="secondary-btn" id="timeline-add-event-btn">
+                  <i class="fa-solid fa-circle-plus"></i> Add Custom Activity
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. RECOMMENDATIONS PANEL -->
+          <div class="dashboard-panel-view" id="panel-recommendations">
+            <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+              <h2>AI Destination Recommendations</h2>
+              <p>Personalized suggestions matching your selected travel style and saved searches.</p>
+            </div>
+
+            <!-- Grid of AI Destinations -->
+            <div class="destinations-grid" id="recommendations-grid-container">
+              <!-- Dynamically populated recommendation cards -->
+            </div>
+          </div>
+
+          <!-- 3. BUDGET PANEL -->
+          <div class="dashboard-panel-view" id="panel-budget">
+            <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+              <h2>Smart Budget Optimization</h2>
+              <p>Verify category expenses, check alerts, and run cost-reduction calculations dynamically.</p>
+            </div>
+
+            <!-- Widgets -->
+            <div class="budget-summary-grid">
+              <div class="budget-widget-card glass-panel">
+                <span class="widget-label">Trip Budget</span>
+                <span class="widget-val" id="budget-val-limit">$0.00</span>
+              </div>
+              <div class="budget-widget-card glass-panel">
+                <span class="widget-label">Estimated Total</span>
+                <span class="widget-val" id="budget-val-total">$0.00</span>
+              </div>
+              <div class="budget-widget-card glass-panel">
+                <span class="widget-label">Difference</span>
+                <span class="widget-val" id="budget-val-diff">$0.00</span>
+              </div>
+            </div>
+
+            <!-- Budget Warning Card -->
+            <div class="budget-alert-card success" id="budget-status-alert">
+              <div class="alert-icon" id="budget-alert-icon"><i class="fa-solid fa-circle-check"></i></div>
+              <div class="alert-text">
+                <h5 id="budget-alert-title">Within Budget Limits</h5>
+                <p id="budget-alert-desc">Your trip is fully optimized. The expenses match your budget ceiling perfectly.</p>
+              </div>
+            </div>
+
+            <!-- Category Bars Graph -->
+            <div class="budget-bars-card glass-panel">
+              <h3 style="margin-bottom: 10px;">Expense Category Breakdown</h3>
+              
+              <!-- Accomodation Row -->
+              <div class="budget-category-row">
+                <div class="category-row-meta">
+                  <span class="category-name"><i class="fa-solid fa-hotel" style="color:#a855f7"></i> Accommodation</span>
+                  <span class="category-prices"><span id="bar-val-hotel">$0</span> / <span id="bar-pct-hotel">0%</span></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="bar-fill-hotel" style="background:#a855f7"></div>
+                </div>
+              </div>
+
+              <!-- Transportation Row -->
+              <div class="budget-category-row">
+                <div class="category-row-meta">
+                  <span class="category-name"><i class="fa-solid fa-plane" style="color:#00f2fe"></i> Transportation</span>
+                  <span class="category-prices"><span id="bar-val-transport">$0</span> / <span id="bar-pct-transport">0%</span></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="bar-fill-transport" style="background:#00f2fe"></div>
+                </div>
+              </div>
+
+              <!-- Food Row -->
+              <div class="budget-category-row">
+                <div class="category-row-meta">
+                  <span class="category-name"><i class="fa-solid fa-utensils" style="color:#f59e0b"></i> Food & Dining</span>
+                  <span class="category-prices"><span id="bar-val-food">$0</span> / <span id="bar-pct-food">0%</span></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="bar-fill-food" style="background:#f59e0b"></div>
+                </div>
+              </div>
+
+              <!-- Activities Row -->
+              <div class="budget-category-row">
+                <div class="category-row-meta">
+                  <span class="category-name"><i class="fa-solid fa-ticket" style="color:#10b981"></i> Activities & Entry</span>
+                  <span class="category-prices"><span id="bar-val-activities">$0</span> / <span id="bar-pct-activities">0%</span></span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" id="bar-fill-activities" style="background:#10b981"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. FAVORITES PANEL -->
+          <div class="dashboard-panel-view" id="panel-favorites">
+            <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+              <h2>Saved Destinations & Wishlist</h2>
+              <p>Keep track of places you've pinned for future exploration.</p>
+            </div>
+            
+            <div class="destinations-grid" id="favorites-grid-container">
+              <!-- Dynamically populated favorites -->
+            </div>
+          </div>
+
+          <!-- 5. REVIEWS PANEL -->
+          <div class="dashboard-panel-view" id="panel-reviews">
+            <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+              <h2>Reviews & Ratings Hub</h2>
+              <p>Share feedback on visited hotspots and check scores from fellow travelers.</p>
+            </div>
+
+            <!-- Summary Statistics -->
+            <div class="reviews-summary-card glass-panel">
+              <div class="rating-avg-box">
+                <div class="rating-avg-num" id="reviews-avg-rating">4.8</div>
+                <div class="rating-avg-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <div class="rating-avg-total" id="reviews-count-text">Based on 24 reviews</div>
+              </div>
+              <div class="rating-details-progress">
+                <h4 style="margin-bottom:12px;">Partner Community Insights</h4>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Our members rate the accuracy of itineraries and efficiency of transport routing extremely high. Rate your trip to update live community logs.</p>
+              </div>
+            </div>
+
+            <!-- Review Composer Form -->
+            <div class="review-composer glass-panel">
+              <h3 style="margin-bottom: 5px;">Leave a Partner Review</h3>
+              <form id="partner-review-form" onsubmit="return false;">
+                <div class="form-group">
+                  <label>Select Rating</label>
+                  <div class="star-rating-selector" id="rating-star-picker">
+                    <span data-star="1"><i class="fa-regular fa-star"></i></span>
+                    <span data-star="2"><i class="fa-regular fa-star"></i></span>
+                    <span data-star="3"><i class="fa-regular fa-star"></i></span>
+                    <span data-star="4"><i class="fa-regular fa-star"></i></span>
+                    <span data-star="5" class="selected"><i class="fa-regular fa-star"></i></span>
+                  </div>
+                </div>
+
+                <div class="inputs-row-2">
+                  <div class="form-group">
+                    <label for="review-dest-name">Destination</label>
+                    <input type="text" class="form-control" id="review-dest-name" placeholder="e.g., Kyoto, Japan" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="review-author">Your Name / Title</label>
+                    <input type="text" class="form-control" id="review-author" placeholder="Explorer name" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="review-text">Detailed Feedback</label>
+                  <textarea class="form-control" id="review-text" rows="3" placeholder="Tell other partners about your itinerary experience, cost accuracy, or recommended sights..." required></textarea>
+                </div>
+
+                <button class="glow-btn" id="submit-review-btn"><i class="fa-solid fa-paper-plane"></i> Submit Feedback</button>
+              </form>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="reviews-list-container" id="community-reviews-list">
+              <!-- Dynamically populated reviews -->
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- AUTHENTICATION BACKDROP MODAL -->
+  <div class="modal-backdrop" id="auth-modal-backdrop">
+    <div class="auth-modal glass-panel">
+      <button class="close-modal-btn" id="close-auth-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login-btn">Sign In</button>
+        <button class="auth-tab" id="tab-register-btn">Register</button>
+      </div>
+
+      <!-- Login Form View -->
+      <div class="auth-form-container active" id="form-login-view">
+        <form id="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="login-username">Username or Email</label>
+            <input type="text" class="form-control" id="login-username" placeholder="enter travel_partner" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" class="form-control" id="login-password" placeholder="••••••••" required>
+          </div>
+          <button class="glow-btn" type="submit" style="width: 100%; margin-top: 15px;">Sign In to Eternity</button>
+        </form>
+      </div>
+
+      <!-- Register Form View -->
+      <div class="auth-form-container" id="form-register-view">
+        <form id="register-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input type="text" class="form-control" id="reg-name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email Address</label>
+            <input type="email" class="form-control" id="reg-email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-username">Choose Username</label>
+            <input type="text" class="form-control" id="reg-username" placeholder="travel_lover_99" required>
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password (Encrypted simulation)</label>
+            <input type="password" class="form-control" id="reg-password" placeholder="••••••••" required>
+          </div>
+          <button class="glow-btn" type="submit" style="width: 100%; margin-top: 15px;">Create Secure Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT FORM MODAL (Add / Edit Itinerary Event) -->
+  <div class="event-form-overlay" id="event-modal-overlay">
+    <div class="event-form-card glass-panel">
+      <h3 style="margin-bottom: 20px;" id="event-modal-title">Edit Activity</h3>
+      
+      <form id="timeline-event-form" onsubmit="return false;">
+        <input type="hidden" id="event-edit-day-idx">
+        <input type="hidden" id="event-edit-event-idx">
+        
+        <div class="form-group">
+          <label for="event-title">Activity Title</label>
+          <input type="text" class="form-control" id="event-title" placeholder="Visit Temple / Take Surf Lesson" required>
+        </div>
+
+        <div class="inputs-row-2">
+          <div class="form-group">
+            <label for="event-time">Start Time</label>
+            <input type="text" class="form-control" id="event-time" placeholder="09:00 AM" required>
+          </div>
+          <div class="form-group">
+            <label for="event-cost-val">Cost ($)</label>
+            <input type="number" class="form-control" id="event-cost-val" placeholder="25" min="0" required>
+          </div>
+        </div>
+
+        <div class="inputs-row-2">
+          <div class="form-group">
+            <label for="event-duration">Duration (e.g. 2 hours)</label>
+            <input type="text" class="form-control" id="event-duration" placeholder="2 hours" required>
+          </div>
+          <div class="form-group">
+            <label for="event-category">Category</label>
+            <select class="form-control" id="event-category" required>
+              <option value="accommodation">Accommodation</option>
+              <option value="transportation">Transportation</option>
+              <option value="food">Food & Dining</option>
+              <option value="activity" selected>Activity & Entry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="event-desc">Description</label>
+          <textarea class="form-control" id="event-desc" rows="2" placeholder="Brief details about the event..."></textarea>
+        </div>
+
+        <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
+          <button class="secondary-btn" type="button" id="event-cancel-btn">Cancel</button>
+          <button class="glow-btn" type="submit" id="event-submit-btn">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom: 12px; padding:0;">
+          <span class="gradient-text"><i class="fa-solid fa-infinity"></i></span> Travel Eternity
+        </a>
+        <p>A smart Travel Partner utility specializing in personalized dynamic routing, financial safety-check warnings, and automated time scheduler algorithms.</p>
+        <div class="footer-socials">
+          <a href="#" class="icon-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="icon-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#">Itinerary Planner</a></li>
+          <li><a href="#">AI Engine</a></li>
+          <li><a href="#">Budget Optimization</a></li>
+          <li><a href="#">Community Ratings</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Travel Partners</a></li>
+          <li><a href="#">Global Wishlists</a></li>
+          <li><a href="#">Security & Hashing</a></li>
+          <li><a href="#">JSON Templates</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Secure Platform</h4>
+        <p>All passwords are encrypted client-side using customized session masking. Real-time updates push automatically.</p>
+        <p style="font-size: 0.8rem; color: var(--text-dimmed);"><i class="fa-solid fa-lock" style="color:var(--color-success)"></i> SSL Encrypted & persistent localStore</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Travel Eternity Partner Inc. Developed for seamless travel adventures. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Core Javascript -->
+  <script src="app.js"></script>
+</body>
+</html>

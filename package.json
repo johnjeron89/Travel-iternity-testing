@@ -1,0 +1,14 @@
+{
+  "name": "travel-eternity-partner",
+  "version": "1.0.0",
+  "description": "Full-stack Travel Eternity Partner platform with Express and SQLite.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}
